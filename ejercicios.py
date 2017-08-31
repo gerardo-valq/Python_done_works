@@ -1,120 +1,216 @@
-
 #Gerardo Arturo Valderrama Quiroz
 #A01374994
+#Programacion Avanzada
+import math
 
+#Ejercicio 1
 
-
-#Ejercicio 1 even or odd
-
-num = int(raw_input("Escribe un  mumero "))
-check = int(raw_input ("Escrive un numero con el que dividir "))
-
-if num%2 == 0:
-    print str(num) + " es un numero par"
-else :
-    print str(num) + " es un numero impar"
-if num%4 == 0:
-    print str(num) + " es un multiplo de 4"
-else:
-    print str(num) + " no es un multiplo 4"
-if num%check == 0:
-    print str(num) + " es exactamente dividible por " + str(check)
-else:
-    print str(num) + " no es exatamente divisible por " + str(check)
-    
-                   
-                
-#Ejercicio2
-print ""
-print ""
-print "Comienza el ejercicio 2"
+print "Ejercicio 1"
 print ""
 
-p1=raw_input("Escribe tu nombre ")
-p2=raw_input("Escribe tu nombre ")
-cp1=raw_input("Selecciona piedra, papel o tijeras " + p1 + " ")
-cp2=raw_input("Selecciona piedra, papel o tijeras " + p2 + " ")
+numbase = 1
+summ = 0
 
-if cp1 == "tijeras":
-    if cp2 == "tijeras":
-        print "Es un empate"
-    if cp2 == "papel":
-        print "Tijeras le gana a papel, Gana " + p1
-    if cp2 == "piedra":
-        print "Piedra le gana a tijeras, Gana " + p2
-    
-if cp1 == "piedra":
-    if cp2 == "piedra":
-        print "Es un empate"
-    if cp2 == "tijeras":
-        print "Piedra le gana a tijeras, Gana " + p1
-    if cp2 == "papel":
-        print "Papel le gana a piedra, Gana " + p2
-    
-if cp1 == "papel":
-    if cp2 == "papel":
-        print "Es un empate"
-    if cp2 == "piedra":
-        print "Papel le gana a piedra, Gana " + p1
-    if cp2 == "tijeras":
-        print "Tijeras le gana a papel, Gana " + p2
+for counter in range (999):
+    if (numbase%3 == 0) or (numbase%5 == 0):
+        summ = summ + numbase
+        numbase = numbase + 1
 
-#Ejercicio 3
+    else:
+        numbase = numbase + 1
+
+
+print "The sum of the multiples of 3 and 5 is " + str(summ)
 print ""
 print ""
-print "Comienza el ejercicio 3"
+
+#Ejercicio 2
+
+print "Ejercicio 2"
 print ""
 
-string_a = raw_input("Escribe una lista ")
-a = string_a.split() 
-a = [int(a) for a in a] 
-b=[]
+numbase = 0
+fibonacci = 0
+fibonacci1 = 0
+fibonacci2= 1
+summ = 0
 
-for x in a:
-    if x%2 == 0:
-        b.append(x)
+while (fibonacci <= 4000000):
+    if (fibonacci%2 == 0):
+        summ = summ + fibonacci
 
-print b
+    fibonacci = fibonacci1 + fibonacci2
+    fibonacci1 = fibonacci2
+    fibonacci2 =fibonacci
 
-#Ejercicio 4
+print "The sum of the values below 4,000,000 of the fibonacci sequence is " + str(summ)    
 print ""
 print ""
-print "Comienza el ejercicio 4"
-print ""    
 
-string_c = raw_input("Escribe una lista ")
-c = string_c.split() 
-c = [int(c) for c in c] 
-d=[]
+#Exercise 3
 
-lim= int(raw_input("De esa lista quieres lo valores menores a que numero "))
-for x in c:
-    if x <= 0:
-        d.append(x)
-print d
-
-
-#Ejercicio 5
+print "Exercise 3"
 print ""
-print ""
-print "Comienza el ejercicio 5"
-print ""  
 
-string_l1 = raw_input("Escribe una lista ")
-l1 = string_l1.split() 
-l1 = [int(l1) for l1 in l1]
+numbase = 600851475143
+i = 2
 
-string_l2 = raw_input("Escribe otra lista ")
-l2 = string_l2.split() 
-l2 = [int(l2) for l2 in l2] 
+while i*i < numbase:
+    while numbase%i == 0:
+        numbase = numbase / i
 
-l3=[]
+    i = i +1
 
-for x in l1:
-    if x in l2:
-        if x not in l3:
-            l3.append(x)
-print "The common numbers are " + str(l3)
+print "The largest prime factor is " + str(numbase)
+print""
+print""
+
+#Exercise 4
+
+print "Exercise 4"
+print""
+
+mult1 = 999
+mult2 = 999
+pal1 = 0
+pal2 = 0
+big = 0
+
+
+while mult1 != 900:
+    while mult2 != 900:
+        pal1 = str(mult1 * mult2)
+        pal2 = ''.join(reversed(pal1))
+        if pal1 == pal2:
+            if (pal1 > big):
+                big = pal1
+            mult2 = mult2 - 1
+        else:
+            mult2 = mult2 - 1
+
+        
+    mult1 = mult1 -1
+    mult2 = 999
+
+print big
+print""
+print""
+
+
+
+#Exercise 6
+print "Exercise 6"
+print""
+
+limit = 101
+sqr = 0
+summ = 0
+
+for i in range (limit):
+    summ = summ + i
+    sqr = sqr + i**2
+
+print (summ**2) - sqr
+print""
+print""
+
+
+#Exercise 7
+print "Exercise 7"
+print""
+
+maxn = 1000000
+count = 0
+prime = 0
+
+for x in range (2,maxn+1):
+    isPrime = True
+    for y in range (2,x):
+        if x%y==0:
+            isPrime = False
+    if isPrime:
+        count = count + 1
+        prime = x
+        print count,
+        if count == 10001:
+            break
+print"El numero numero primo 10001 es " +str(prime)
+print""
+print"" 
+
+#Exercise 10
+print "Exercise 10"
+print""
+
+maxn = 2000000
+summ = 0
+
+for x in range (2,maxn+1):
+    isPrime = True
+    for y in range (2,x):
+        if x%y==0:
+            isPrime = False
+    if isPrime:
+        summ = summ + x
+
+print"La suma de los numero primos menora a 2,000,000 es " +str(summ)
+print""
+print""   
+
+
+#Ejercicios fallidos 
+
+#Exercise 5
+
+#1.-dividir un numero X entre 1
+#2.- Si el modulo es igual a cero entonces
+    #al divisor sumarle uno y sacar el modulo, si el modulo es cero y la diviso es exacta repetir estemismo paso hasta que se cumpla 20
+    #Si no es cero o es exacta, al numero x se le suma uno y se repite le proceso
+
+#Exercise 9
+print "Exercise 9"
+print""
+
+a=0
+b=0
+c=1000
+
+while a != 0:
+    while b!= 0:
+        while c!= 0:
+            summ = a + b + c
+            pythc = math.sqrt(a**2 +b**2)
+            print summ
+            if (c == pythc)and summ == 1000 :
+                print a*b*c
+            else:
+                c = c -1
+        b=b+1
+        c=1000
+        print b
+    a=a+1
+    b=1000
+    print a
+            
+print""
+print"" 
+
+
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
