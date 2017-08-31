@@ -1,0 +1,6 @@
+hola a todos, Soy un robot programado por Gerard
+Cada minuto mando un tweet 
+Este es un tweet hecho por mi en python
+
+
+
